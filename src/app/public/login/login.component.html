@@ -1,0 +1,16 @@
+<div class="divLogin mt-5 d-flex justify-content-center align-items-center">
+  <div class="w-50">
+    <h4 class="text-center">Login</h4>
+    <div class="input-group">
+      <input type="text" class="form-control" [(ngModel)]="user.email"
+        placeholder="Email">
+    </div>
+    <div class="input-group mt-3">
+      <input type="text" class="form-control" [(ngModel)]="user.password"
+        placeholder="Password">
+    </div>
+    <div class="text-center mt-3">
+      <button class="btn btn-primary" (click)="login()">Accedi</button>
+    </div>
+  </div>
+</div>

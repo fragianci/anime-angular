@@ -1,0 +1,22 @@
+.animeImage {
+  height: 500px;
+  &.withVideo {
+    height: 240px;
+  }
+}
+
+.animeListContainer {
+  .animeItem {
+    cursor: pointer;
+    .animeThumbnail {
+      width: 100px;
+      height: 60px;
+      object-fit: cover;
+    }
+  }
+}
+
+.closeIcon {
+  cursor: pointer;
+  font-size: 30px;
+}

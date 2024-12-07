@@ -1,0 +1,38 @@
+<h2 class="text-center">Template driven form</h2>
+<div class="d-flex justify-content-center row">
+  <div class="card col-11 col-md-7 shadow-lg rounded p-5 m-3">
+    <form action #myForm="ngForm" (ngSubmit)="send()">
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" id="name" name="name"
+          #nameModel="ngModel"
+          [(ngModel)]="user.name">
+      </div>
+      <div class="form-group">
+        <label for="surname">Cognome</label>
+        <input type="text" class="form-control" id="surname" name="surname"
+          #nameModel="ngModel"
+          [(ngModel)]="user.surname">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" required id="password"
+          name="password"
+          #nameModel="ngModel"
+          [(ngModel)]="user.password"
+          [ngClass]="{'is-invalid': passwordForm?.invalid && passwordForm?.touched}">
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-primary" type="submit"
+          [disabled]="myForm.invalid">
+          Invia
+        </button>
+      </div>
+
+      <pre>
+        {{ user | json }}
+      </pre>
+
+    </form>
+  </div>
+</div>

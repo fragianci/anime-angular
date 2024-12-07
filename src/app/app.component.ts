@@ -1,10 +1,90 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AuthService } from './shared/services/auth.service';
+import { User } from './shared/models/user.model';
+import { tap } from 'rxjs';
+import { AnimeService } from './shared/services/anime.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'anime-gpi';
+export class AppComponent implements OnInit {
+  // L'architettura a moduli è tipica di un'applicazione enterprise. Angular supporta anche un architettura di componenti standalone, utile perche diventerà piu semplice e diretto creare dei componenti che usano il concetto di lazy loading che vedremo piu avanti.
+  // ng new nomeProgetto --standalone false per creare un progetto senza i componenti standalone
+  // ? differenza tra dependencies e devdependencies
+
+  titlePadre = 'anime-gpi';
+  list: number[] = [2, 4];
+  showing: boolean = true;
+
+  getComment(commento: string) {
+    console.log('Commento nel componente padre: ', commento);
+  }
+
+  constructor(private readonly authService: AuthService, private readonly animeService: AnimeService) {
+    let t = { x: 2, y: 4 };
+    /** Destrutturazione */
+    let { x, y } = t;
+    // console.log(x + y);
+    this.test(this.list);
+    /** let e const > var vede il cambiamento fuori dal blocco let rimane nel blocco */
+    let a = 1;
+    if (true) {
+      let a = 2;
+    }
+    console.log(a);
+    // console.log(this.fibonacci(7));
+    this.getRandomCharacter();
+  }
+
+  ngOnInit(): void {
+    // ? usare i named outlet sulla navbar public e private
+    // ? guardare perche non va can deactivate
+    // ! il mattino inizia dal routing
+    // ! il pomeriggio inizia dal template driven form
+  }
+
+  test([a, b]: number[]) {
+    console.log(a, b);
+  }
+
+  changeTitle() {
+    this.titlePadre = 'Nuovo titolo';
+  }
+
+  show() {
+    this.showing = !this.showing;
+  }
+
+  /**
+   * Calcola il numero di fibonacci
+   * @param n numero da calcolare
+   * @returns numero di fibonacci
+   */
+  fibonacci(n: number): number {
+    console.log('n: ', n);
+
+    if (n <= 1) return n;
+    return this.fibonacci(n - 1) + this.fibonacci(n - 2);
+  }
+  getListNumber(list: number[]) {
+    console.log('list: ', list);
+    this.list = list;
+  }
+
+  getRandomCharacter() {
+    this.animeService.getRandomCharacters().subscribe({
+      next: res => {
+        console.log(res);
+      },
+      error: error => {
+        console.error(error);
+      },
+    });
+  }
+
+  get character() {
+    return this.animeService.getCharacterSignal();
+  }
 }

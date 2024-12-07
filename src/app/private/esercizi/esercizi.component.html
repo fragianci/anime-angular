@@ -1,0 +1,53 @@
+<h1>Componente figlio: {{ titleFiglio }}</h1>
+
+<h1>Data binding</h1>
+<h2>Interpolazione di stringa</h2>
+<p>Questo componente si chiama {{ nomeComponent }}</p>
+
+<h2>Property binding</h2>
+<img class="cat" [src]="imagePath" alt [ngClass]="{ shown: showing }" [ngStyle]="{ display: showing ? 'flex' : 'none' }" />
+
+<h2>Event binding</h2>
+<button (click)="like()">Like</button>
+
+<h2>Two way data binding</h2>
+<input [(ngModel)]="commento" type="text" />
+<label>
+  {{ commento }}
+</label>
+
+<h1>Direttive</h1>
+<h2>Strutturali</h2>
+<span *unless="showing">Testo</span>
+<button [ngSwitch]="showing" (click)="show()">
+  <label *ngIf="!showing" for>Mostra</label>
+  <label *ngIf="showing" for>Nascondi</label>
+  <!-- <label *ngSwitchCase="true">
+    Nascondi
+  </label>
+  <label *ngSwitchCase="false">
+    Mostra
+  </label>
+  <label *ngSwitchDefault>
+    Non valido
+  </label> -->
+</button>
+<!-- [ngStyle]="{backgroundColor: showing ? 'red': 'green'}" -->
+<span class="row" *ngFor="let student of students; let i = index">
+  Il nome della persona {{ i + 1 }} è {{ student }}
+  <button class="btn btn-secondary save" (click)="save(student)">Salva Persona</button>
+</span>
+
+<button class="btn btn-light" (click)="getList()">Ottieni lista</button>
+
+<ul *ngFor="let student of studentsSaved" class="row">
+  <li>
+    {{ student }}
+  </li>
+</ul>
+
+<h1>Transclusion</h1>
+<anime-like> Like </anime-like>
+<anime-like [isPrimary]="false"> Dislike </anime-like>
+
+<button (click)="addNumber()">Aggiungi</button>

@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between">
+  <h3>
+    {{ anime.titleEnglish ?? anime?.title }}
+  </h3>
+  <div class="closeIcon" (click)="close()">
+    <i class="bi bi-x"></i>
+  </div>
+</div>
+<div class="w-100 d-flex mt-3" [ngClass]="{ 'justify-content-center': !videoUrl, 'justify-content-between': videoUrl }">
+  <iframe *ngIf="videoUrl" [src]="videoUrl" frameborder="0" width="560" height="315" allowfullscreen> </iframe>
+  <img class="animeImage" [src]="anime.images.jpg.largeImageUrl" alt [ngClass]="{ withVideo: videoUrl }" />
+</div>
+
+<p class="mt-3">
+  {{ anime.background && anime.background !== '' ? anime.background : 'Nessuna descrizione disponibile' }}
+</p>
+
+<div class="mt-3">
+  <h4>Anime consigliati</h4>
+  <div class="d-flex overflow-auto animeListContainer">
+    <div
+      *ngFor="let entry of animeEntries"
+      class="d-flex flex-column align-items-center mx-2 animeItem"
+      style="height: 150px"
+      (click)="openAnimeRecommendation(entry)">
+      <img class="animeThumbnail" style="width: 100px" [src]="entry.images.jpg.imageUrl" alt="" />
+      <span class="mt-2 text-center" style="font-size: 12px">{{ entry.title | truncate : 50 : true }}</span>
+    </div>
+  </div>
+</div>

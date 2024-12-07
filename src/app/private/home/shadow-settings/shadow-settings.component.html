@@ -1,0 +1,20 @@
+<div class="mt-3">
+  <button class="btn btn-outline-dark mb-1" (click)="hideSettings = !hideSettings">
+    {{ hideSettings ? 'Show' : 'Hide' }}
+  </button>
+  <!-- *unless="hideSettings" -->
+  <div class="row" *ngIf="!hideSettings">
+    <div class="col-4">
+      <strong>Shadow offset X</strong>
+      <input class="ms-3" type="range" min="10" max="50" [(ngModel)]="shadowOffsetX" (ngModelChange)="shadowChange()" />
+    </div>
+    <div class="col-4">
+      <strong>Shadow offset Y</strong>
+      <input class="ms-3" type="range" min="10" max="50" [(ngModel)]="shadowOffsetY" (ngModelChange)="shadowChange()" />
+    </div>
+    <div class="col-4">
+      <strong>Shadow blur</strong>
+      <input class="ms-3" type="range" min="10" max="50" [(ngModel)]="shadowBlur" (ngModelChange)="shadowChange()" />
+    </div>
+  </div>
+</div>

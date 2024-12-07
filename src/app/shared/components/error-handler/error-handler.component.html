@@ -1,0 +1,36 @@
+<ng-container [ngSwitch]="true">
+  <div *ngSwitchCase="error?.required">
+    <small class="text-danger">
+      {{ element }} obbligatorio
+    </small>
+  </div>
+
+  <div
+    *ngSwitchCase="error?.minlength?.actualLength < error?.minlength?.requiredLength">
+    <div class="text-danger">
+      {{ element }}: lunghezza minima richiesta di {{
+      error?.minlength?.requiredLength
+      }}
+    </div>
+  </div>
+
+  <div *ngSwitchCase="error?.usernameExists">
+    <div class="text-danger">
+      {{ element }}: nome utente gia
+      esistente
+    </div>
+  </div>
+
+  <div *ngSwitchCase="error?.containsNumbers">
+    <div class="text-danger">
+      {{ element }}: la password non puo
+      contenere dei numeri
+    </div>
+  </div>
+
+  <div *ngSwitchCase="error?.email">
+    <div class="text-danger">
+      {{ element }}: l'email è sbagliata
+    </div>
+  </div>
+</ng-container>

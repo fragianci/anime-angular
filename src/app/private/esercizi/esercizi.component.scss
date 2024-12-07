@@ -1,0 +1,13 @@
+.cat{
+  width: 250px;
+  height: 250px;
+
+  &.shown{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.save{
+  width: 100px;
+}

@@ -1,0 +1,20 @@
+<div class="mt-5">
+  <anime-shadow-settings (shadowSettingsEmitter)="getShadowSettings($event)"></anime-shadow-settings>
+  <anime-searchbar (searchTextEmitter)="getSearch($event)"></anime-searchbar>
+  <div class="d-flex">
+    @if (isLoading) {
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+      <anime-spinner />
+    </div>
+    } @else {
+    <div class="flex-grow-1">
+      <anime-list
+        [shadowOffsetX]="shadowSettings.offsetX"
+        [shadowOffsetY]="shadowSettings.offsetY"
+        [shadowBlur]="shadowSettings.blur"
+        [animeList]="filteredAnimeList"></anime-list>
+    </div>
+    }
+    <anime-random-character *ngIf="character.mal_id"></anime-random-character>
+  </div>
+</div>

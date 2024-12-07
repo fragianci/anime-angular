@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      [ngClass]="{ 'justify-content-between': isLogged, 'justify-content-end': !isLogged }"
+      id="navbarNavDropdown">
+      <ul class="navbar-nav" *ngIf="isLogged">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="private/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="private/esercizi">Esercizi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="private/first-outlet-example">First Outlet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="private/second-outlet-example">Second Outlet</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Forms </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="private/forms/template-driven-form">Template driven form</a></li>
+            <li><a class="dropdown-item" routerLink="private/forms/data-driven-form">Reactive form</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="btn btn-primary" *ngIf="isLogged; else notLogged" (click)="logout()">Logout</button>
+
+      <ng-template #notLogged>
+        <button class="btn btn-primary" routerLink="/public/register">Registrati</button>
+      </ng-template>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,5 @@
+<button class="btn"
+  [ngClass]="{'btn-primary': isPrimary, 'btn-danger': !isPrimary}"
+  (click)="like()">
+  <ng-content></ng-content>
+</button>

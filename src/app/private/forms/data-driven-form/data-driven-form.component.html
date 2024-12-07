@@ -1,0 +1,68 @@
+<h2 class="text-center">Data driven form o Reactive form</h2>
+<div class="d-flex justify-content-center row">
+  <div class="card col-11 col-md-7 shadow-lg rounded p-5 m-3">
+    <form action [formGroup]="myForm" (ngSubmit)="send()">
+      <div class="form-group mt-1">
+        <label for="name">Nome</label>
+        <input type="text" id="name" formControlName="name"
+          [ngClass]="{'is-invalid': nameForm.touched && nameForm.invalid}"
+          class="form-control">
+      </div>
+      <anime-error-handler *ngIf="nameForm.touched" [element]="'Nome'"
+        [error]="nameForm.errors"></anime-error-handler>
+      <div class="form-group mt-1">
+        <label for="surname">Cognome</label>
+        <input type="text" id="surname" formControlName="surname"
+          class="form-control">
+      </div>
+      <anime-error-handler *ngIf="surnameForm.touched" [element]="'Cognome'"
+        [error]="surnameForm.errors"></anime-error-handler>
+      <div class="form-group mt-1">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email"
+          class="form-control">
+      </div>
+      <anime-error-handler *ngIf="emailForm.touched" [element]="'Email'"
+        [error]="emailForm.errors"></anime-error-handler>
+      <div class="form-group mt-1">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input [type]="isTypePassword ? 'password' : 'text'" id="password"
+            formControlName="password"
+            class="form-control">
+          <div class="input-group-prepend" (click)="changeTypePassword()">
+            <span class="input-group-text changePassword" id>
+              <i class="bi"
+                [ngClass]="{ 'bi-eye': !isTypePassword, 'bi-eye-slash': isTypePassword }"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <anime-error-handler *ngIf="passwordForm.touched" [element]="'Password'"
+        [error]="passwordForm.errors"></anime-error-handler>
+      <div class="mt-2 p-4 border rounded-2"
+        [ngClass]="{'border-danger-subtle': infoUserGroup.invalid && infoUserGroup.touched}"
+        formGroupName="infoUser">
+        <div class="form-group">
+          <label for="street">Strada</label>
+          <input type="text" id="street" formControlName="street"
+            class="form-control street"
+            [ngClass]="{'is-invalid': stradaForm.invalid && stradaForm.touched}">
+        </div>
+        <anime-error-handler *ngIf="stradaForm.touched" [element]="'Strada'"
+          [error]="infoUserGroup.get('street')?.errors"></anime-error-handler>
+        <div class="form-group">
+          <label for="birthCity">Città di nascita</label>
+          <input type="text" id="birthCity" formControlName="birthCity"
+            class="birthCity form-control">
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-primary" type="submit">Invia</button>
+      </div>
+    </form>
+    <pre>
+      {{ myForm.value | json }}
+    </pre>
+  </div>
+</div>

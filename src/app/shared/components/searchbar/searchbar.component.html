@@ -1,0 +1,11 @@
+<div class="input-group mb-3 mt-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Anime da cercare"
+    aria-label="Anime"
+    aria-describedby="addon-wrapping"
+    [(ngModel)]="searchText"
+    (ngModelChange)="search()" />
+  <button class="btn btn-primary" type="button" (click)="search()" id="addon-wrapping">Search</button>
+</div>

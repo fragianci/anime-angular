@@ -1,0 +1,42 @@
+<table
+  class="table mt-2"
+  animeCustomShadow
+  shadowColor="rgba(0, 0, 255, 0.5)"
+  [shadowOffsetX]="shadowOffsetX"
+  [shadowOffsetY]="shadowOffsetY"
+  [shadowBlur]="shadowBlur">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Original title</th>
+      <th scope="col">Score</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Aired from</th>
+      <th scope="col">To</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let anime of animeList">
+      <td (click)="openAnime(anime)">{{ anime.id }}</td>
+      <td (click)="openAnime(anime)">{{ anime.titleEnglish | truncate }}</td>
+      <td (click)="openAnime(anime)">{{ anime.titleJapanese }}</td>
+      <td (click)="openAnime(anime)">{{ anime.score }}</td>
+      <td (click)="openAnime(anime)">{{ anime.duration }}</td>
+      <td (click)="openAnime(anime)">{{ anime.aired.from | date : 'dd-MM-yyyy' }}</td>
+      <td (click)="openAnime(anime)">{{ anime.aired.to | date : 'dd-MM-yyyy' }}</td>
+      <td>
+        <anime-like (likeEmitter)="like(anime)"> Like </anime-like>
+      </td>
+      <td>
+        <anime-like [isPrimary]="false"> Dislike </anime-like>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <pre>
+  {{ animeList | json }}
+</pre> -->
