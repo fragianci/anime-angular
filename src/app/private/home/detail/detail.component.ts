@@ -115,7 +115,7 @@ export class DetailComponent implements OnInit {
     //     id: entry.id,
     //   },
     // });
-    this.router.navigate(['private', { outlets: { details: ['anime', entry.id] } }]);
+    this.router.navigate(['private/home', { outlets: { details: ['anime', entry.id] } }]);
   }
 
   close() {

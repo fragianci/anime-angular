@@ -28,7 +28,7 @@ export class ListComponent {
     //   },
     // });
 
-    this.router.navigate(['private', { outlets: { details: ['anime', anime.id] } }]);
+    this.router.navigate(['private/home', { outlets: { details: ['anime', anime.id] } }]);
   }
 
   like(anime: Anime) {

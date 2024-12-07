@@ -3,6 +3,7 @@ import { AnimeService } from '../../shared/services/anime.service';
 import { Anime, IShadowSettings } from '../../shared/models/anime';
 import { Subscription, tap } from 'rxjs';
 import { ICharacter } from '../../shared/models/character.model';
+import { ActivationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'anime-home',
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     return this.animeService.getCharacterSignal();
   }
 
-  constructor(private readonly animeService: AnimeService) {
+  constructor(private readonly animeService: AnimeService, private readonly router: Router) {
     console.log('HomeComponent');
     this.getCharacter();
   }
