@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { PublicComponent } from './public.component';
 import { RegisterComponent } from './register/register.component';
+import { checkFormGuard } from '../guards/check-form.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
+        canDeactivate: [checkFormGuard],
       },
       {
         path: 'register',

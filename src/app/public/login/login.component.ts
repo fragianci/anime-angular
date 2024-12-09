@@ -24,9 +24,11 @@ export class LoginComponent implements CanDeactivateComponent {
   }
 
   login() {
-    console.log(this.user);
+    if (this.user.email.length && this.user.password.length) {
+      console.log(this.user);
 
-    this.authService.login(this.user);
+      this.authService.login(this.user);
+    }
     this.router.navigate(['private/home']);
   }
 }
