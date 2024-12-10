@@ -39,10 +39,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // ? guardare perche non va can deactivate
-    // ? mostrare i named outlet il pomeriggio
-    // ! il mattino inizia dal routing
-    // ! il pomeriggio inizia dal template driven form
+    // ? inventati un esercizio per il pomeriggio
+    // ! il mattino inizia dal template driven form
     // todo > quando si apre il dettaglio dell'anime, rendere la home una sidebar e visualizzare il dettaglio dell'anime al centro
   }
 
