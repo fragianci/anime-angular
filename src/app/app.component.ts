@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
     console.log(a);
     // console.log(this.fibonacci(7));
     this.getRandomCharacter();
-    console.log('CIAO TEST');
   }
 
   ngOnInit(): void {
