@@ -16,6 +16,8 @@ export class EserciziComponent implements OnInit, OnChanges, OnDestroy {
   @Output() commentEmitter: EventEmitter<string> = new EventEmitter<string>();
   // Custom property binding
   @Input() listNumber: number[] = [];
+  @Input() listNumber2: number[] = [];
+
   // Custom event binding
   @Output() listNumberEmitter: EventEmitter<number[]> = new EventEmitter<number[]>();
   showing: boolean = true;
