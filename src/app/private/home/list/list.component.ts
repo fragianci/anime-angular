@@ -1,20 +1,32 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Anime } from '../../../shared/models/anime';
 import { AnimeService } from '../../../shared/services/anime.service';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'anime-list',
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   @Input() animeList: Anime[] = [];
   @Input() shadowOffsetX: number = 20;
   @Input() shadowOffsetY: number = 20;
   @Input() shadowBlur: number = 20;
   data: Date = new Date();
   constructor(private readonly animeService: AnimeService, private readonly router: Router) {}
+
+  ngOnInit(): void {
+    this.animeList.forEach(anime => {
+      this.animeService
+        .getAnimeDetail$(anime.id)
+        .pipe(delay(500))
+        .subscribe(anime => {
+          console.log('anime: ', anime);
+        });
+    });
+  }
 
   openAnime(anime: Anime) {
     // TRAMITE PARAMS
