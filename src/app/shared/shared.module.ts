@@ -14,6 +14,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CustomShadowDirective } from './directives/custom-shadow.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { DynamicTruncateDirective } from './directives/dynamic-truncate.directive';
 
 const COMPONENTS = [
   HeaderComponent,
@@ -26,7 +27,7 @@ const COMPONENTS = [
   SpinnerComponent,
 ];
 
-const DIRECTIVES = [UnlessDirective, CustomShadowDirective];
+const DIRECTIVES = [UnlessDirective, CustomShadowDirective, DynamicTruncateDirective];
 
 const PIPES = [TruncatePipe];
 
