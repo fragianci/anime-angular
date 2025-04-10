@@ -24,9 +24,12 @@ export class AppComponent implements OnInit {
 
   constructor(private readonly authService: AuthService, private readonly animeService: AnimeService) {
     console.log('master');
+    console.log('fix/test');
     let t = { x: 2, y: 4 };
     /** Destrutturazione */
     let { x, y } = t;
+    console.log('ciao test');
+
     // console.log(x + y);
     this.test(this.list);
     console.log('ciao master');
