@@ -29,6 +29,8 @@ export class AppComponent implements OnInit {
     let { x, y } = t;
     // console.log(x + y);
     this.test(this.list);
+    console.log('ciao master');
+
     /** let e const > var vede il cambiamento fuori dal blocco let rimane nel blocco */
     let a = 1;
     if (true) {
