@@ -28,6 +28,8 @@ export class AppComponent implements OnInit {
     let t = { x: 2, y: 4 };
     /** Destrutturazione */
     let { x, y } = t;
+    console.log('ciao test');
+
     // console.log(x + y);
     this.test(this.list);
     /** let e const > var vede il cambiamento fuori dal blocco let rimane nel blocco */
