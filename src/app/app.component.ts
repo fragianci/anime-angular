@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private readonly authService: AuthService, private readonly animeService: AnimeService) {
+    console.log('master');
+
     let t = { x: 2, y: 4 };
     /** Destrutturazione */
     let { x, y } = t;
@@ -76,10 +78,10 @@ export class AppComponent implements OnInit {
 
   getRandomCharacter() {
     this.animeService.getRandomCharacters().subscribe({
-      next: res => {
+      next: (res) => {
         console.log(res);
       },
-      error: error => {
+      error: (error) => {
         console.error(error);
       },
     });
