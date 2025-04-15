@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:20'
+            args '-v $HOME/.m2:/root/.m2'
         }
     }
 
