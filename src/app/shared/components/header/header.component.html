@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Navbar 2</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -8,13 +8,15 @@
       data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown"
       aria-expanded="false"
-      aria-label="Toggle navigation">
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div
       class="collapse navbar-collapse"
       [ngClass]="{ 'justify-content-between': isLogged, 'justify-content-end': !isLogged }"
-      id="navbarNavDropdown">
+      id="navbarNavDropdown"
+    >
       <ul class="navbar-nav" *ngIf="isLogged">
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="private/home">Home</a>
