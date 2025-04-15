@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy dell\'App') {
             steps {
                 script {
-                    sh 'npm run patch:deploy'  // Esegui la build per produzione
+                    sh 'npm run patch:deploy && git push --set-upstream origin master'  // Esegui la build per produzione
                 }
             }
         }
