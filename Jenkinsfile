@@ -43,7 +43,7 @@ pipeline {
         stage('Test con TestContainers') {
             steps {
                 script {
-                    sh 'docker run --rm ${DOCKER_IMAGE}:${DOCKER_TAG} npm test'  // Esegui i test (ad esempio unit test)
+                    sh 'docker run --rm ${DOCKER_IMAGE}:${DOCKER_TAG} npm run test --watch=false --browsers=ChromeHeadless'  // Esegui i test (ad esempio unit test)
                     // sh 'npm run test -- --watch=false --browsers=ChromeHeadless'
                 }
             }
