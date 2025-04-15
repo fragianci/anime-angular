@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools{
+      nodejs('20.19.0')
+    }
 
     environment {
         DOCKER_IMAGE = "anime-angular"
