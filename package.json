@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "ng build --base-href ´https://fragianci.github.io/anime-angular/´ && npx angular-cli-ghpages --dir=dist/anime-angular/browser",
-    "patch:deploy": "npm version patch && npm run deploy"
+    "patch:deploy": "npm version patch && npm run deploy",
+    "minor:deploy": "npm version minor && npm run deploy",
+    "major:deploy": "npm version major && npm run deploy"
   },
   "private": true,
   "dependencies": {
