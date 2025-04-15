@@ -19,6 +19,7 @@ pipeline {
         stage('Installare Dipendenze') {
             steps {
                 script {
+                    sh 'nvm use 20'
                     sh 'npm install'  // Installa dipendenze per Angular
                 }
             }
