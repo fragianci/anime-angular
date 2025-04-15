@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   // ng new nomeProgetto --standalone false per creare un progetto senza i componenti standalone
   // ? differenza tra dependencies e devdependencies
 
-  titlePadre = 'anime-gpi';
+  titlePadre = 'anime-angular';
   list: number[] = [2, 4];
   showing: boolean = true;
 
