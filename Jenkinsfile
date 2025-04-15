@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools{
-      node('20.19.0')
+      nodejs 'node20'
     }
 
     environment {
