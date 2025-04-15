@@ -23,6 +23,7 @@ pipeline {
             steps {
                 script {
                     sh 'npm install'  // Installa dipendenze per Angular
+                    sh 'npm install -g @angular/cli@latest'
                 }
             }
         }
