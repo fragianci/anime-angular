@@ -28,7 +28,7 @@ pipeline {
       steps {
         script {
           docker.image(DOCKER_IMAGE).inside {
-            sh 'npm run deploy'
+            sh 'npm run patch:deploy'
           }
         }
       }
