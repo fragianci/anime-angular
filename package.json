@@ -10,7 +10,10 @@
     "deploy": "ng build --base-href ´https://fragianci.github.io/anime-angular/´ && npx angular-cli-ghpages --dir=dist/anime-angular/browser",
     "patch:deploy": "npm version patch && npm run deploy && git push",
     "minor:deploy": "npm version minor && npm run deploy && git push",
-    "major:deploy": "npm version major && npm run deploy && git push"
+    "major:deploy": "npm version major && npm run deploy && git push",
+    "docker:build": "docker build -t anime-angular .",
+    "docker:run": "docker run -p 3000:3000 anime-angular",
+    "docker:start": "npm run docker:build && npm run docker:run"
   },
   "private": true,
   "dependencies": {
