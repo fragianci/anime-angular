@@ -19,14 +19,14 @@ pipeline {
             }
         }
 
-        stage('Controllo Autore Commit') {
-            steps {
-                script {
-                    def author = sh(script: "git log -1 --pretty=format:'%an'", returnStdout: true).trim()
-                    def message = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+        // stage('Controllo Autore Commit') {
+        //     steps {
+        //         script {
+        //             def author = sh(script: "git log -1 --pretty=format:'%an'", returnStdout: true).trim()
+        //             def message = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
                     
-                    echo "Ultimo commit da: ${author}"
-                    echo "Messaggio commit: ${message}"
+        //             echo "Ultimo commit da: ${author}"
+        //             echo "Messaggio commit: ${message}"
 
                     // Esempio: blocca solo se Jenkins ha committato qualcosa con un messaggio sospetto
                     // if ((author == 'Jenkins' || author == 'jenkins-bot') && message.toLowerCase().contains('auto')) {
@@ -34,9 +34,9 @@ pipeline {
                     //     currentBuild.result = 'SUCCESS'
                     //     error('Build interrotta per evitare loop Jenkins.')
                     // }
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
 
         stage('Installare Dipendenze') {
