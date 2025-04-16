@@ -1,9 +1,16 @@
-<div class="container rounded border p-3 d-flex flex-column align-items-center ms-3" style="width: 180px; margin-top: 8px" *ngIf="character">
-  <img [src]="character?.images?.jpg?.image_url" alt="" style="width: 150px" class="rounded" />
-  <p class="small mt-1">{{ character?.name }}</p>
-  <p class="small">
-    {{ character.about | truncate : 100 : true : !showAll }}
-    <label style="color: #2b99bc" class="" *ngIf="enableTruncate" (click)="showAll = !showAll">{{ !showAll ? 'Leggi tutto' : 'Nascondi' }}</label>
-  </p>
+<div
+  class="container rounded border p-3 d-flex flex-column align-items-center justify-content-between ms-3"
+  style="width: 180px; height: 440px; margin-top: 8px"
+  *ngIf="character"
+  [ngStyle]="{ height: showAll ? 'auto' : '440px' }"
+>
+  <img [src]="character?.images?.jpg?.image_url" alt="" style="width: 150px; height: 180px; object-fit: contain" class="rounded" />
+  <div class="d-flex flex-column align-items-center justify-content-between flex-grow-1 mt-3">
+    <p class="small mt-1 mb-0">{{ character?.name }}</p>
+    <p class="small">
+      {{ character.about | truncate : 85 : true : !showAll }}
+      <label style="color: #2b99bc" class="" *ngIf="enableTruncate" (click)="showAll = !showAll">{{ !showAll ? 'Leggi tutto' : 'Nascondi' }}</label>
+    </p>
+  </div>
   <button class="btn btn-primary" (click)="getRandomCharacter()">New character</button>
 </div>
