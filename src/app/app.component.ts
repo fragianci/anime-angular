@@ -1,9 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from './shared/services/auth.service';
-import { User } from './shared/models/user.model';
-import { tap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { AnimeService } from './shared/services/anime.service';
-import packageJson from '../../package.json';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -45,7 +42,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('App version:', packageJson.version);
     // ? come mai sul temp driven form il form control con type email non dava errore?
     // ? inventati un esercizio per il pomeriggio
     // ! il mattino inizia dal template driven form
