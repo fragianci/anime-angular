@@ -19,6 +19,22 @@ pipeline {
             }
         }
 
+        stage('Controllo Autore Commit') {
+            steps {
+                script {
+                    def author = sh(script: "git log -1 --pretty=format:%an", returnStdout: true).trim()
+                    def message = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+                    
+                    echo "Ultimo commit da: ${author}"
+                    echo "Messaggio commit: ${message}"
+
+                    if ((author.toLowerCase().contains('jenkins') || author.toLowerCase().contains('bot')) && message.toLowerCase().contains('auto')) {
+                        error('Commit automatico Jenkins rilevato, build interrotta per evitare loop.')
+                    }
+                }
+            }
+        }
+
         stage('Installare Dipendenze') {
             steps {
                 script {
