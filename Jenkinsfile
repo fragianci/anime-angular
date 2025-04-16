@@ -29,11 +29,11 @@ pipeline {
                     echo "Messaggio commit: ${message}"
 
                     // Esempio: blocca solo se Jenkins ha committato qualcosa con un messaggio sospetto
-                    if ((author == 'Jenkins' || author == 'jenkins-bot') && message.toLowerCase().contains('auto')) {
-                        echo 'Commit automatico rilevato, interrompo la build per evitare loop.'
-                        currentBuild.result = 'SUCCESS'
-                        error('Build interrotta per evitare loop Jenkins.')
-                    }
+                    // if ((author == 'Jenkins' || author == 'jenkins-bot') && message.toLowerCase().contains('auto')) {
+                    //     echo 'Commit automatico rilevato, interrompo la build per evitare loop.'
+                    //     currentBuild.result = 'SUCCESS'
+                    //     error('Build interrotta per evitare loop Jenkins.')
+                    // }
                 }
             }
         }
