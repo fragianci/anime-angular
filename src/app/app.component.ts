@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimeService } from './shared/services/anime.service';
 import { AuthService } from './shared/services/auth.service';
+import { ApiService } from './shared/services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
     console.log('Commento nel componente padre: ', commento);
   }
 
-  constructor(private readonly authService: AuthService, private readonly animeService: AnimeService) {
+  constructor(private readonly authService: AuthService, private readonly animeService: AnimeService, private readonly apiService: ApiService) {
     let t = { x: 2, y: 4 };
     /** Destrutturazione */
     let { x, y } = t;
@@ -39,6 +40,14 @@ export class AppComponent implements OnInit {
     // console.log(this.fibonacci(7));
     this.getRandomCharacter();
     console.log('CIAO');
+    // this.apiService.getMovies().subscribe({
+    //   next: (res) => {
+    //     console.log('getMovies: ', res);
+    //   },
+    //   error: (error) => {
+    //     console.error(error);
+    //   },
+    // });
   }
 
   ngOnInit(): void {
