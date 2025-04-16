@@ -62,7 +62,7 @@ pipeline {
 
         stage('Push Docker Image') {
             when {
-                branch 'main'  // Esegui questo step solo se il branch è "main"
+                branch 'master'  // Esegui questo step solo se il branch è "main"
             }
             steps {
                 script {
