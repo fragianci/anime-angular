@@ -28,7 +28,7 @@ pipeline {
                     echo "Ultimo commit da: ${author}"
                     echo "Messaggio commit: ${message}"
 
-                    if (!message.matches('\\d+\\.\\d+\\.\\d+')) {
+                    if (message.matches('\\d+\\.\\d+\\.\\d+')) {
                         error('Il messaggio di commit deve seguire il pattern number.number.number (es. 1.2.3)')
                     }
                 }
