@@ -28,8 +28,8 @@ pipeline {
                     echo "Ultimo commit da: ${author}"
                     echo "Messaggio commit: ${message}"
 
-                    if ((author.toLowerCase().contains('jenkins') || author.toLowerCase().contains('bot')) && message.toLowerCase().contains('auto')) {
-                        error('Commit automatico Jenkins rilevato, build interrotta per evitare loop.')
+                    if (!message.matches('\\d+\\.\\d+\\.\\d+')) {
+                        error('Il messaggio di commit deve seguire il pattern number.number.number (es. 1.2.3)')
                     }
                 }
             }
