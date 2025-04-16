@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AnimeService } from './shared/services/anime.service';
 import { AuthService } from './shared/services/auth.service';
 import { ApiService } from './shared/services/api.service';
+import { DefaultService } from './shared/services';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,12 @@ export class AppComponent implements OnInit {
     console.log('Commento nel componente padre: ', commento);
   }
 
-  constructor(private readonly authService: AuthService, private readonly animeService: AnimeService, private readonly apiService: ApiService) {
+  constructor(
+    private readonly authService: AuthService,
+    private readonly animeService: AnimeService,
+    private readonly apiService: ApiService,
+    private readonly defaultService: DefaultService
+  ) {
     let t = { x: 2, y: 4 };
     /** Destrutturazione */
     let { x, y } = t;
@@ -48,6 +54,15 @@ export class AppComponent implements OnInit {
     //     console.error(error);
     //   },
     // });
+
+    this.defaultService.apiMoviesGet().subscribe({
+      next: (res) => {
+        console.log('getMovies: ', res);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 
   ngOnInit(): void {
