@@ -13,7 +13,8 @@
     "major:deploy": "npm version major && npm run deploy && git push --set-upstream origin master",
     "docker:build": "docker build -t anime-angular .",
     "docker:run": "docker run -p 3000:3000 anime-angular",
-    "docker:start": "npm run docker:build && npm run docker:run"
+    "docker:start": "npm run docker:build && npm run docker:run",
+    "start:ngrok": "ngrok http 8080"
   },
   "private": true,
   "dependencies": {
