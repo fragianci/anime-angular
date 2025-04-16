@@ -1,4 +1,4 @@
-<div class="input-group mb-3 mt-3">
+<div class="input-group mb-3 mt-3 d-none d-md-flex">
   <input
     type="text"
     class="form-control"
@@ -6,6 +6,7 @@
     aria-label="Anime"
     aria-describedby="addon-wrapping"
     [(ngModel)]="searchText"
-    (ngModelChange)="search()" />
+    (ngModelChange)="search()"
+  />
   <button class="btn btn-primary" type="button" (click)="search()" id="addon-wrapping">Search</button>
 </div>
