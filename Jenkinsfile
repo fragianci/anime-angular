@@ -19,6 +19,22 @@ pipeline {
             }
         }
 
+        stage('Controllo Autore Commit') {
+            steps {
+                script {
+                def author = sh(script: "git log -1 --pretty=format:'%an'", returnStdout: true).trim()
+                echo "Ultimo commit fatto da: ${author}"
+
+                    if (author == 'Jenkins' || author == 'jenkins-bot') {
+                        echo 'Commit fatto da Jenkins, blocco la pipeline per evitare loop.'
+                        currentBuild.result = 'SUCCESS'
+                        error('Build interrotta per evitare un loop.')
+                    }
+                }
+            }
+        }
+
+
         stage('Installare Dipendenze') {
             steps {
                 script {
